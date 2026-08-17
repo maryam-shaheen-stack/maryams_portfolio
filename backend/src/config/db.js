@@ -19,11 +19,10 @@ export async function connectDB() {
   const uri = process.env.MONGODB_URI;
 
   if (!uri) {
-    console.error(
-      "[db] MONGODB_URI is not set. Copy .env.example to .env and fill in your MongoDB Atlas connection string."
-    );
-    if (!process.env.VERCEL) process.exit(1);
-    throw new Error("MONGODB_URI is not set");
+    const msg =
+      "[db] MONGODB_URI is not set. Copy .env.example to .env and fill in your MongoDB Atlas connection string.";
+    console.error(msg);
+    throw new Error(msg);
   }
 
   if (cached.conn) return cached.conn;
@@ -39,7 +38,6 @@ export async function connectDB() {
       .catch((err) => {
         cached.promise = null;
         console.error("[db] MongoDB connection failed:", err.message);
-        if (!process.env.VERCEL) process.exit(1);
         throw err;
       });
   }
