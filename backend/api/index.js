@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import { connectDB } from "../src/config/db.js";
-import { createApp } from "../src/app.js";
+import { createApp } from "../src/expressApp.js";
 
 // Vercel's Node runtime treats an exported Express app as a request
 // handler directly — no app.listen() here (that's only for the plain
