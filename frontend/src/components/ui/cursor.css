@@ -1,0 +1,56 @@
+/* Custom site cursor: a glowing arrow (matches the Atelier palette —
+   plum/brass/sky) set as the real, native OS cursor via CSS `cursor:
+   url(...)`. No JS position-tracking, no simulated overlay element —
+   the browser's actual pointer *is* this graphic, so there is never
+   any lag or mismatch between what's drawn and what the pointer will
+   actually click. This is what makes clicks on buttons/links always
+   land exactly where they visually appear to.
+
+   A brighter/larger variant is used automatically over anything
+   interactive, giving the same "this is clickable" feedback the old
+   hover-ring gave, without any of its downsides. */
+
+html,
+body {
+  cursor: url("/cursors/cursor-default.svg") 4 3, auto;
+}
+
+a,
+button,
+input,
+textarea,
+select,
+[role="button"],
+label,
+summary,
+.tech-float-outer,
+.project-card,
+.cursor-hover {
+  cursor: url("/cursors/cursor-pointer.svg") 4 3, pointer;
+}
+
+input,
+textarea {
+  cursor: text;
+}
+
+/* Touch devices don't have a hover-capable pointer at all — let the
+   platform handle its own touch affordances instead of forcing a
+   custom cursor image that will never actually be seen. */
+@media (pointer: coarse) {
+  html,
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  [role="button"],
+  label,
+  summary,
+  .tech-float-outer,
+  .project-card,
+  .cursor-hover {
+    cursor: auto;
+  }
+}

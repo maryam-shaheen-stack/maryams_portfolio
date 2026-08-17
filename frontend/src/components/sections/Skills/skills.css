@@ -1,0 +1,148 @@
+.skills-wrapper {
+  position: relative;
+  background: var(--color-hero-bg);
+}
+
+.skills-pin {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: radial-gradient(120% 90% at 50% 50%, var(--color-hero-bg) 0%, var(--color-hero-bg-2) 100%);
+}
+
+.skills-dom {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.skills-eyebrow {
+  position: absolute;
+  top: 6vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-hero-muted);
+}
+.skills-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 0.6em;
+  border-radius: 50%;
+  background: var(--color-brass);
+  vertical-align: middle;
+}
+
+.skills-focus-band {
+  position: relative;
+  width: 100%;
+  height: clamp(180px, 30vh, 320px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skills-item {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity, filter;
+}
+
+/* The row IS the 90%-of-section container — both cards live inside it
+   and split it evenly via flex:1, so together they always cover exactly
+   90% width with 5% breathing room on each side, regardless of viewport. */
+.skills-pair-row {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: clamp(1.25rem, 3vw, 3rem);
+}
+
+.skills-pair-row--solo {
+  justify-content: center;
+}
+.skills-pair-row--solo .skills-card {
+  flex: 0 1 auto;
+  width: min(680px, 90%);
+}
+
+.skills-card {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: clamp(0.8rem, 2vw, 2rem);
+  padding: clamp(1.1rem, 2.4vw, 1.6rem) clamp(1.4rem, 3vw, 2.2rem);
+  border: 1px solid rgba(201, 150, 43, 0.35);
+  background: rgba(15, 12, 20, 0.35);
+  backdrop-filter: blur(6px);
+}
+
+.skills-card-index {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--color-hero-muted);
+}
+
+.skills-card-name {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+  letter-spacing: -0.01em;
+  color: var(--color-brass);
+  white-space: nowrap;
+}
+
+.skills-card-detail {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-hero-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .skills-pair-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .skills-pair-row--solo .skills-card { width: 100%; }
+}
+
+@media (max-width: 640px) {
+  .skills-card {
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
+    padding: 1rem 1.2rem;
+  }
+  .skills-card-name { font-size: clamp(1.3rem, 6vw, 1.7rem); }
+  .skills-card-detail {
+    flex-basis: 100%;
+    text-align: left;
+    white-space: normal;
+  }
+  .skills-eyebrow { top: 4vh; }
+}

@@ -1,0 +1,26 @@
+/* ============================================
+   Shared grid/layout tweaks for standalone pages.
+   Reuses card classes already defined in the section CSS files
+   (project-card, education-card, research-card, etc.) so visuals
+   stay consistent with the homepage — these just adjust layout
+   for a full listing instead of a homepage teaser.
+   ============================================ */
+
+.page-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-md);
+}
+
+.page-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.page-section {
+  padding-top: 0;
+}
+.page-section + .page-section {
+  padding-top: var(--space-xl);
+}

@@ -1,0 +1,12 @@
+.contact { background: var(--color-hero-bg); color: var(--color-hero-ink); border-radius: var(--radius-lg); margin: 0 var(--space-md); }
+.contact .container { max-width: 900px; }
+.contact-inner { text-align: center; padding: var(--space-xl) 0; }
+.contact h2 { color: var(--color-hero-ink); font-size: clamp(2rem, 5vw, 3.4rem); margin-top: 0.6rem; }
+.contact-sub { margin-top: var(--space-sm); color: var(--color-hero-muted); font-size: 1.05rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+.contact-links { display: flex; justify-content: center; gap: 1rem; margin-top: var(--space-lg); flex-wrap: wrap; }
+.contact-page-link { display: inline-flex; margin-top: var(--space-sm); }
+.contact .eyebrow { justify-content: center; color: var(--color-brass); }
+.contact .eyebrow::before { background: var(--color-brass); }
+@media (max-width: 640px) {
+  .contact { margin: 0 var(--space-sm); }
+}

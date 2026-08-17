@@ -1,0 +1,48 @@
+.scroll-companion {
+  position: fixed;
+  z-index: 40;
+  width: 46px;
+  height: 46px;
+  pointer-events: none;
+  transform: translate(-50%, -50%) rotate(var(--tilt, 0deg));
+  transition: left 0.08s linear, top 0.08s linear, transform 0.2s ease-out;
+  animation: scroll-companion-bob 3.4s ease-in-out infinite;
+}
+
+.scroll-companion-icon {
+  width: 100%;
+  height: 100%;
+  color: var(--color-brass);
+  /* Soft glow doubles as contrast: keeps the icon legible over both the
+     light sections and the dark hero without needing a background card. */
+  filter: drop-shadow(0 0 6px rgba(58, 124, 165, 0.55))
+    drop-shadow(0 2px 6px rgba(22, 66, 91, 0.35));
+}
+
+/* Gentle idle float so it never sits perfectly still, even while the
+   page itself is stationary — same "always slightly alive" idea as the
+   FloatingTechIcon idle bob in Projects. */
+@keyframes scroll-companion-bob {
+  0%, 100% { margin-top: 0; }
+  50% { margin-top: -7px; }
+}
+
+@media (max-width: 900px) {
+  .scroll-companion {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 420px) {
+  .scroll-companion {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-companion {
+    display: none;
+  }
+}

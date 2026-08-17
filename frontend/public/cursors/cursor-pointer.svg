@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34">
+  <defs>
+    <linearGradient id="tube2" x1="4" y1="3" x2="22" y2="29" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3A7CA5"/>
+      <stop offset="0.55" stop-color="#81C3D7"/>
+      <stop offset="1" stop-color="#D9DCD6"/>
+    </linearGradient>
+    <filter id="glow2" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="2.4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- stronger glow to read as "active/hover" -->
+  <path
+    d="M4 3 L4 25 L9.5 20.5 L13.5 28.5 L17.5 26.5 L13.5 18.5 L21 18.5 Z"
+    fill="none" stroke="#81C3D7" stroke-width="6" stroke-linejoin="round"
+    opacity="0.6" filter="url(#glow2)"
+  />
+
+  <!-- crisp glass tube, brighter fill -->
+  <path
+    d="M4 3 L4 25 L9.5 20.5 L13.5 28.5 L17.5 26.5 L13.5 18.5 L21 18.5 Z"
+    fill="url(#tube2)" stroke="#ffffff" stroke-width="1.1" stroke-linejoin="round"
+  />
+</svg>

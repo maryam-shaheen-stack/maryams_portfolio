@@ -1,0 +1,42 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+.about-copy p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--color-ink);
+  margin-bottom: 1.1rem;
+}
+.about-focus {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+}
+.about-focus-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  margin-bottom: var(--space-sm);
+}
+.about-focus ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.about-focus li {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.about-edu {
+  margin-top: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-plum);
+}
+@media (max-width: 860px) {
+  .about-grid { grid-template-columns: 1fr; }
+}
